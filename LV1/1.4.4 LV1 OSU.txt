@@ -1,0 +1,20 @@
+file = open("song.txt","r")
+contents = file.read()
+file.close()
+
+special_char =",.?!"
+for schar in special_char:
+   if schar in contents:
+      contents = contents.replace(schar,"")
+
+word_list = contents.split()
+word_count = {}
+for word in word_list:
+   if word in word_count:
+        word_count[word] += 1
+   else:
+       word_count[word] = 1
+
+
+for key,value in word_count.items():
+    print(f"Word {key} occurs: {value} times")

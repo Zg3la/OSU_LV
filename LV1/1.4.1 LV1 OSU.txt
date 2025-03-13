@@ -1,0 +1,10 @@
+workHours = input("How many hours have you worked? ")
+hourlyRate = input("What is your hourly rate? ")
+print("Radni sati: " + workHours)
+print("Satnica: " + hourlyRate + "eur/h")
+
+def total_euro(workhours, hourlyrate):
+    ukupno = float(workHours)*float(hourlyRate)
+    print("Ukupno:" + str(ukupno))
+
+total_euro(workHours,hourlyRate)

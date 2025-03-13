@@ -1,0 +1,30 @@
+numbers = []
+while True:
+    inp = input("Enter a number or type done: ")
+
+   
+    if inp.lower() == 'done':
+        break
+
+    try:
+        
+        numbers.append(float(inp))
+    except ValueError:
+        
+        print("Enter a valid input!")
+
+if numbers:  
+    sumNumbers = sum(numbers)
+    length = len(numbers)
+    averageNums = sumNumbers / length
+
+    print("Count:", length)
+    print("Average:", averageNums)
+    print("Min:", min(numbers))
+    print("Max:", max(numbers))
+else:
+    print("No numbers were entered.")
+
+
+numbers.sort()
+print("Sorted numbers:", numbers)
