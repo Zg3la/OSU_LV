@@ -1,18 +1,24 @@
 file = open("SMSSpamCollection.txt", "r", encoding="utf-8")
-
 ham_messages = []
 spam_messages = []
-
+messageswithuslikcnik=0
 for line in file:
     line = line.strip()  
     
     if not line:
         continue
+
     
     if line.startswith('ham'):
         ham_messages.append(line[4:].strip())
+    
     elif line.startswith('spam'):
         spam_messages.append(line[5:].strip())
+
+    if line.startswith('spam'):
+        message=line[5:]
+        if message.endswith("?"):
+            messageswithuslikcnik+=1
 
 def average_word_count(messages):
     total_words = 0
@@ -28,4 +34,5 @@ print(*ham_messages)
 print(*spam_messages)
 print(f"Prosječan broj riječi u 'ham' porukama: {avg_words_ham:.2f}")
 print(f"Prosječan broj riječi u 'spam' porukama: {avg_words_spam:.2f}")
+print(f"Broj spam poruka koje završavaju upitnikom: {messageswithuslikcnik}")
 file.close()
